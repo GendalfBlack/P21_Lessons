@@ -8,7 +8,26 @@ int f1(int a) {
     return a / 2;
 }
 
+void f2(int* pa) {
+    *pa /= 2;
+}
+
+void f3(int& a) {
+    a /= 2;
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
+    int x = 10;
+    x = f1(x); // використання функції без показчиків та посиланнь
+    cout << x << endl;
+    
+    x = 10;
+    f2(&x);  // використання функції з показчиком
+    cout << x << endl;
+
+    x = 10;
+    f3(x);  // використання функції з посиланням
+    cout << x << endl;
+
 }
