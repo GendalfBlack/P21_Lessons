@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+/* калькулятор */
 int getname(char* name) {
 	if		(name[0] == 'a' && name[1] == 'd' && name[2] == 'd') { return 0; }
 	else if (name[0] == 's' && name[1] == 'u' && name[2] == 'b') { return 1; }
