@@ -1,20 +1,27 @@
-// CUAProject3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// strstr -> шукає в рядку місцезнаходження певного підрядка, та повертає показчик 
+//           на нього. Знайти слово, чи сполучення символів у рядку
 #include <iostream>
+using namespace std;
+
+// Задача 2. Знайти в тексті що написав користувач всі слова, що починаються з 
+// великої букви 'S'.
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    char* str = new char[300];
+    fgets(str, 300, stdin);
+    //Susan Sells Seashells by the Seashore. Sam Snead's swing is still studied by golfers today. The Sun Sets Slowly in the Summer Sky. The Statue of Liberty Stands Strong in New York City. Sally's Silly Sister Sings Songs on Saturdays.
+    //SnSuRe hoW to. ProceED wiTH thIS dOCumeNT.The reSIgnation leTTER wAS submiTtEd LAsT weEk.The eXPLOsion CREatED a HUGe MESS in tHE lab.He wAS aCCUSED of SeLLinG coUNterfEIT GoODs.The aTTORneY ARGUED thAT the evidENCE wAS inaDmisSIBLE.
+    for (char* pos = strstr(str, " S"); pos - str < strlen(str); pos++)
+    {
+        if (pos - str > 0)
+        {
+            for (char* pos2 = pos; *pos2 != ' ' && *pos2 != '.' && *pos2 != '\0'; pos2++)
+            {
+                cout << *pos2;
+            }
+            pos = strstr(pos, " S");
+            cout << endl;
+        }
+    }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
