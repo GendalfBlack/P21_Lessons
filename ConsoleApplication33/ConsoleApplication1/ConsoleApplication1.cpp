@@ -15,8 +15,8 @@ int main()
 		{
 			fprintf_s(out, "%d,", arr[i], sizeof(int));
 		}
-	}
 	fclose(out);
+	}
 
 	int new_arr[5] = {0,0,0,0,0};
 	if (fopen_s(&in, path, "r") == NULL) // файл за шляхом path відкрився без помилки
@@ -30,8 +30,8 @@ int main()
 			k++;
 			if (k == 5) { break; }
 		}
-	}
 	fclose(in);
+	}
 
 	for (int i = 0; i < 5; i++)
 	{
