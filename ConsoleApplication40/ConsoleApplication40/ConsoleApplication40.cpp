@@ -26,7 +26,8 @@ int main()
 	SetConsoleActiveScreenBuffer(hConsole);	DWORD dwBytesWritten = 0;
 	for (int i = 0; i < 3600; i++)
 	{
-		int rnd = rand() % 5;
+		screen[i] = 14400 +i;
+		/*int rnd = rand() % 5;
 		switch (rnd)
 		{
 		case 0: screen[i] = FULL; i++; screen[i] = FULL; break;
@@ -35,7 +36,7 @@ int main()
 		case 3: screen[i] = T3; i++; screen[i] = T3; break;
 		case 4: screen[i] = ' '; i++; screen[i] = ' '; break;
 		default: break;
-		}
+		}*/
 	}
 	screen[3599] = '\0';
 
@@ -44,19 +45,6 @@ int main()
 		chrono::duration<float> elapsetTime = tp2 - tp1;
 		tp1 = tp2;
 		float deltaTime = elapsetTime.count();
-		for (int i = 0; i < 3600; i++)
-		{
-			int rnd = rand() % 5;
-			switch (rnd)
-			{
-			case 0: screen[i] = FULL; i++; screen[i] = FULL; break;
-			case 1: screen[i] = T1; i++; screen[i] = T1; break;
-			case 2: screen[i] = T2; i++; screen[i] = T2; break;
-			case 3: screen[i] = T3; i++; screen[i] = T3; break;
-			case 4: screen[i] = ' '; i++; screen[i] = ' '; break;
-			default: break;
-			}
-		}
 		//swprintf_s(screen, 12, L"FPS=%3.2f", 1.0f / deltaTime);
 		WriteConsoleOutputCharacter(hConsole, screen, 3600, { 0, 0 }, &dwBytesWritten);
 	}
